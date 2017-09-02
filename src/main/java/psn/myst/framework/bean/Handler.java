@@ -24,6 +24,10 @@ public class Handler {
         this.actionMethod = actionMethod;
     }
 
+    public Class<?> getControllerClass() {
+        return controllerClass;
+    }
+
     public Method getActionMethod() {
         return actionMethod;
     }
