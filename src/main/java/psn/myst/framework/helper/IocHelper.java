@@ -1,6 +1,8 @@
 package psn.myst.framework.helper;
 
 import org.apache.commons.lang3.ArrayUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import psn.myst.framework.annotation.Inject;
 import psn.myst.framework.util.ReflectionUtil;
 
@@ -13,6 +15,8 @@ import java.util.Map;
  * @since 2017/9/2
  */
 public final class IocHelper {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(IocHelper.class);
 
     static {
         Map<Class<?>, Object> beanMap = BeanHelper.getBeanMap();
@@ -35,5 +39,6 @@ public final class IocHelper {
                 }
             }
         }
+        LOGGER.error("finish IocHelprt static.");
     }
 }

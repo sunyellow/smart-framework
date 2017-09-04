@@ -31,4 +31,12 @@ public class Handler {
     public Method getActionMethod() {
         return actionMethod;
     }
+
+    @Override
+    public String toString() {
+        return "Handler{" +
+                "controllerClass=" + controllerClass.getName() +
+                ", actionMethod=" + actionMethod.getName() +
+                '}';
+    }
 }

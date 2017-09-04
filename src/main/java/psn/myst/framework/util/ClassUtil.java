@@ -103,7 +103,7 @@ public final class ClassUtil {
             } else {
                 String subPackgePath = fileName;
                 if (StringUtils.isNotEmpty(packagePath)) {
-                    subPackgePath = packagePath + "." + subPackgePath;
+                    subPackgePath = packagePath + subPackgePath + "/";
                 }
                 String subPackageName = fileName;
                 if (StringUtils.isNotEmpty(packageName)) {
@@ -116,6 +116,7 @@ public final class ClassUtil {
 
     private static void doAddClass(Set<Class<?>> classSet, String className) {
         Class<?> cls = loadClass(className, false);
+        LOGGER.error("add to CLASS_SET, class :{}", cls.getName());
         classSet.add(cls);
     }
 }

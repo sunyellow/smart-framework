@@ -1,5 +1,8 @@
 package psn.myst.framework.bean;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+
 /**
  * @author huangrx
  * @version V1.0
@@ -26,11 +29,19 @@ public class Request {
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return HashCodeBuilder.reflectionHashCode(this);
     }
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        return EqualsBuilder.reflectionEquals(this, obj);
+    }
+
+    @Override
+    public String toString() {
+        return "Request{" +
+                "requestMethod='" + requestMethod + '\'' +
+                ", requestPath='" + requestPath + '\'' +
+                '}';
     }
 }

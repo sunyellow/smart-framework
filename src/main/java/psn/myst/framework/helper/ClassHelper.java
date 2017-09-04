@@ -1,5 +1,7 @@
 package psn.myst.framework.helper;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import psn.myst.framework.annotation.Controller;
 import psn.myst.framework.annotation.Service;
 import psn.myst.framework.util.ClassUtil;
@@ -14,11 +16,14 @@ import java.util.Set;
  */
 public final class ClassHelper {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(ClassHelper.class);
+
     private static final Set<Class<?>> CLASS_SET;
 
     static {
         String basePackage = ConfigHelper.getAppBasePackage();
         CLASS_SET = ClassUtil.getClassSet(basePackage);
+        LOGGER.error("finish ClassHelper static.");
     }
 
     /**

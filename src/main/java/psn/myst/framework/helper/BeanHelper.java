@@ -1,5 +1,7 @@
 package psn.myst.framework.helper;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import psn.myst.framework.util.ReflectionUtil;
 
 import java.util.HashMap;
@@ -13,13 +15,17 @@ import java.util.Set;
  */
 public final class BeanHelper {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(BeanHelper.class);
+
     private static final Map<Class<?>, Object> BEAN_MAP = new HashMap<Class<?>, Object>();
 
     static {
         Set<Class<?>> beanClassSet = ClassHelper.getBeanClassSet();
         for (Class<?> beanClass : beanClassSet) {
             Object object = ReflectionUtil.newInstance(beanClass);
+            LOGGER.error("add to BEAN_MAP , class :{},   object :", beanClass.getName(), object.toString());
             BEAN_MAP.put(beanClass, object);
+            LOGGER.error("finish BeanHelper static.");
         }
     }
 
